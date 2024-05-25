@@ -15,8 +15,6 @@ import { loadingCityAtom, placeAtom } from "./atom";
 import { useAtom } from "jotai";
 import { useEffect } from "react";
 
-//https://api.openweathermap.org/data/2.5/forecast?q=bogota&appid=7b9d81cb4952a48961494886139906dc&cnt=2
-
 interface WeatherDetail {
   dt: number;
   main: {
@@ -102,7 +100,7 @@ export default function Home() {
       </div>
     );
   return (
-    <div className="flex flex-col gap-4 bg-gray-100 min-h-screen ">
+    <div className="flex flex-col gap-4 bg-white min-h-screen ">
       <Navbar location={data?.city.name} />
       <main className="px-3 max-w-7xl mx-auto flex flex-col gap-9  w-full  pb-10 pt-4 ">
         {/* today data  */}
@@ -156,7 +154,6 @@ export default function Home() {
                           {format(parseISO(d.dt_txt), "h:mm a")}
                         </p>
 
-                        {/* <WeatherIcon iconName={d.weather[0].icon} /> */}
                         <WeatherIcon
                           iconName={getDayOrNightIcon(
                             d.weather[0].icon,
@@ -170,7 +167,7 @@ export default function Home() {
                 </Container>
               </div>
               <div className=" flex gap-4">
-                {/* left  */}
+                {/* Izquierda  */}
                 <Container className="w-fit  justify-center flex-col px-4 items-center ">
                   <p className=" capitalize text-center">
                     {firstData?.weather[0].description}{" "}
