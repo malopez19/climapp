@@ -77,7 +77,7 @@ export default function Home() {
   const [loadingCity] = useAtom(loadingCityAtom);
 
   const { isLoading, error, data, refetch } = useQuery<WeatherData>('repoData', async () => {
-    const {data} = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=bogota&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&cnt=15`);
+    const {data} = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&cnt=6`);
     return data;
     }
   )
@@ -91,7 +91,7 @@ export default function Home() {
   if (isLoading)
     return (
       <div className="flex items-center min-h-screen justify-center">
-        <p className="animate-bounce">Loading...</p>
+        <p className="animate-bounce">Cargando...</p>
       </div>
     );
   if (error)
